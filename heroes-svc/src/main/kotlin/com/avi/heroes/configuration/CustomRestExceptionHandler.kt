@@ -69,7 +69,7 @@ class CustomRestExceptionHandler : ResponseEntityExceptionHandler() {
     status: HttpStatus,
     request: WebRequest,
   ): ResponseEntity<Any> {
-    val apiError = ApiError(HttpStatus.BAD_REQUEST, ex.localizedMessage)
+    val apiError = ApiError(HttpStatus.BAD_REQUEST, ex.rootCause?.localizedMessage ?: ex.localizedMessage)
     return ResponseEntity(
       apiError, HttpHeaders(), apiError.status)
   }
