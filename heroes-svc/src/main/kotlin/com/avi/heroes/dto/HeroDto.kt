@@ -1,6 +1,6 @@
 package com.avi.heroes.dto
 
-class HeroDto (
+class HeroDto(
   val id: Long,
   val name: String,
   val lastName: String,

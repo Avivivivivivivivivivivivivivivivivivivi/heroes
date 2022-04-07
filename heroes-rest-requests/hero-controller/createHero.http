@@ -8,13 +8,12 @@ content-type: application/json
   "heroClass": "SURVEY_CORP"
 }
 
-###
+### BAD REQUEST
 POST http://localhost:82/api/v1/hero HTTP/1.1
 content-type: application/json
 
 {
   "name": "Mikasa",
   "lastName": "Ackermann",
-  "age": 15,
-  "heroClass": "SURVEY_CORP"
+  "age": 15
 }
