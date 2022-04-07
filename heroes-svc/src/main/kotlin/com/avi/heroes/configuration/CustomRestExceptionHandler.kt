@@ -19,7 +19,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 class CustomRestExceptionHandler : ResponseEntityExceptionHandler() {
 
-  val logger: Logger = LoggerFactory.getLogger(this.javaClass)
+  val log: Logger = LoggerFactory.getLogger(this.javaClass)
 
   override fun handleMethodArgumentNotValid(
     ex: MethodArgumentNotValidException,
@@ -58,7 +58,7 @@ class CustomRestExceptionHandler : ResponseEntityExceptionHandler() {
     ex: EntityNotFoundException, request: WebRequest?,
   ): ResponseEntity<Any?>? {
     val apiError = ApiError(HttpStatus.NOT_FOUND, ex.localizedMessage)
-    logger.error("Requested entity was not found", ex)
+    log.error("Requested entity was not found", ex)
     return ResponseEntity(
       apiError, HttpHeaders(), apiError.status)
   }
