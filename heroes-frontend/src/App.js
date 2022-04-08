@@ -2,7 +2,6 @@ import logo from './logo.svg'
 import './App.css'
 
 const App = () => {
-  const a = ['test', 'test2']
   return (
     <div className="App">
       <header className="App-header">
