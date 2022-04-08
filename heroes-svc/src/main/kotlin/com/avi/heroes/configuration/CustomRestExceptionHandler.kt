@@ -54,9 +54,9 @@ class CustomRestExceptionHandler : ResponseEntityExceptionHandler() {
   }
 
   @ExceptionHandler(EntityNotFoundException::class)
-  fun handleConstraintViolation(
+  fun handleEntityNotFoundException(
     ex: EntityNotFoundException, request: WebRequest?,
-  ): ResponseEntity<Any?>? {
+  ): ResponseEntity<Any> {
     val apiError = ApiError(HttpStatus.NOT_FOUND, ex.localizedMessage)
     log.error("Requested entity was not found", ex)
     return ResponseEntity(
