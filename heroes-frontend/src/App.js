@@ -1,5 +1,7 @@
 import './App.css'
 import { Link, Outlet, Route, Routes } from 'react-router-dom'
+import { Nav, Navbar } from 'react-bootstrap'
+import HeroListContainer from './containers/HeroListContainer'
 
 const App = () => {
   return (
@@ -17,27 +19,20 @@ const App = () => {
 
 const Layout = () => {
   return (
-    <div>
-      {/* A "layout route" is a good place to put markup you want to
-          share across all the pages on your site, like navigation. */}
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/hero">HeroList</Link>
-          </li>
-        </ul>
-      </nav>
+    <>
+      <Navbar bg="dark" variant="dark">
+        <Nav.Link as={Link} to="/">
+          <Navbar.Brand href="">Heroes</Navbar.Brand>
+        </Nav.Link>
 
-      <hr />
-
-      {/* An <Outlet> renders whatever child route is currently active,
-          so you can think about this <Outlet> as a placeholder for
-          the child routes we defined above. */}
+        <Nav className="me-auto">
+          <Nav.Link as={Link} to="hero">
+            Hero List
+          </Nav.Link>
+        </Nav>
+      </Navbar>
       <Outlet />
-    </div>
+    </>
   )
 }
 
@@ -53,14 +48,6 @@ const Home = () => {
   return (
     <>
       <h1>Home page</h1>
-    </>
-  )
-}
-
-const HeroListContainer = () => {
-  return (
-    <>
-      <h1>Hero list page</h1>
     </>
   )
 }
